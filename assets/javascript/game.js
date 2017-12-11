@@ -10,10 +10,7 @@
         var lossCounter;
 
     // images random numbers
-        var imgRandNum1;
-        var imgRandNum2;
-        var imgRandNum3;
-        var imgRandNum4;
+        var imgRandNum = [];
 
     // your total score
         var totalScore;
@@ -24,74 +21,91 @@
             winCounter = 0;
             lossCounter = 0;
             totalScore = 0;
+            $('#wins').text(winCounter);
+            $('#losses').text(lossCounter);
 
         // random point number displayed
             var randNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
             console.log(randNum);
             $('#pointsNum').text(randNum);
+    }
 
         // images random numbers, not displayed
-            var imgRandNum1 = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-            console.log(imgRandNum1);
+            function imagesRandomNumbers() {
+                for (var i = 0; i < 4; i++) {
+                    var num = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+                    imgRandNum.push(num);
+                }
+                console.log(imgRandNum);
+            }
+            imagesRandomNumbers();
 
-            var imgRandNum2 = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-            console.log(imgRandNum2);
+        // win counter total
+            function win() {
+                alert("You WON!");
+                winCounter++;
+                $('#wins').text(winCounter);
+            };
 
-            var imgRandNum3 = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-            console.log(imgRandNum3);
-
-            var imgRandNum4 = (Math.floor(Math.random() * (12 - 1 + 1)) + 1);
-            console.log(imgRandNum4);
-    }
+        // losses counter total
+            function lost() {
+                $('#youLost').text("You LOST!");
+                lossCounter++;
+                $('#losses').text(lossCounter)
+            };
 
 // -------------------- Main Processes ----------------------
     // image clicks to add points to determine win or lose
-        $('.firstImg').on('click', function() {
-            totalScore = totalScore + imgRandNum1;
+        $('#firstImg').on('click', function() {
+            totalScore = totalScore + imgRandNum[0];
+            console.log(totalScore);
             $('#yourTotalScore').text(totalScore);
+
             if (totalScore == randNum) {
-                $('#youWon').text('You WON!');
-                winCounter++;
+                win();
             }
             else if (totalScore > randNum) {
-                $('#youLost').text('You LOST!');
-                lossCounter++;
+                lost();
+            }
+            console.log(randNum);
+        });
+
+        $('#secondImg').on('click', function() {
+            totalScore = totalScore + imgRandNum[1];
+            console.log(totalScore);
+            $('#yourTotalScore').text(totalScore);
+
+            if (totalScore == randNum) {
+                win();
+            }
+            else if (totalScore > randNum) {
+                lost();
             }
         });
 
-        $('.secondImg').on('click', function() {
-            totalScore = totalScore + imgRandNum2;
+        $('#thirdImg').on('click', function() {
+            totalScore = totalScore + imgRandNum[2];
+            console.log(totalScore);
+            $('#yourTotalScore').text(totalScore);
+
             if (totalScore == randNum) {
-                $('#youWon').text('You WON!');
-                winCounter++;
+                win();
             }
             else if (totalScore > randNum) {
-                $('#youLost').text('You LOST!');
-                lossCounter++;
+                lost();
             }
         });
 
-        $('.thirdImg').on('click', function() {
-            totalScore = totalScore + imgRandNum3;
-            if (totalScore == randNum) {
-                $('#youWon').text('You WON!');
-                winCounter++;
-            }
-            else if (totalScore > randNum) {
-                $('#youLost').text('You LOST!');
-                lossCounter++;
-            }
-        });
+        $('#fourthImg').on('click', function() {
+            totalScore = totalScore + imgRandNum[3];
+            console.log(totalScore);
+            $('#yourTotalScore').text(totalScore);
 
-        $('.fourthImg').on('click', function() {
-            totalScore = totalScore + imgRandNum4;
             if (totalScore == randNum) {
-                $('#youWon').text('You WON!');
-                winCounter++;
+                win();
             }
             else if (totalScore > randNum) {
-                $('#youLost').text('You LOST!');
-                lossCounter++;
+                lost();
             }
         });
 
