@@ -1,0 +1,18 @@
+body {
+    font-family: bookman, sans-serif;
+    max-width: 100%;
+    margin: 30px 60px 30px 60px;
+    text-align: center;
+}
+
+.header {
+    background-color: #429E4CFF;
+    margin: 0px 250px 20px 250px;
+    padding: 50px 0px 50px 0px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+

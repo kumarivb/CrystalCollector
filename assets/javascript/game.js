@@ -25,7 +25,7 @@
             $('#losses').text(lossCounter);
 
         // random point number displayed
-            var randNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+            randNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
             console.log(randNum);
             $('#pointsNum').text(randNum);
     }
@@ -42,7 +42,7 @@
 
         // win counter total
             function win() {
-                alert("You WON!");
+                $('#youWon').text("You WON!");
                 winCounter++;
                 $('#wins').text(winCounter);
             };
