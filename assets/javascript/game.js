@@ -2,12 +2,15 @@
     $(document).ready(function() {
 
 // -------------------- Global Variables --------------------
-    // random points number and choices
+    // random points number
         var randNum;
 
     // track number of wins and losses
         var winCounter;
         var lossCounter;
+
+        var youWon;
+        var youLost;
 
     // images random numbers
         var imgRandNum = [];
@@ -28,7 +31,7 @@
             randNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
             console.log(randNum);
             $('#pointsNum').text(randNum);
-    }
+        }
 
         // images random numbers, not displayed
             function imagesRandomNumbers() {
@@ -40,11 +43,22 @@
             }
             imagesRandomNumbers();
 
+    // reset
+        function reset() {
+            randNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+            console.log(randNum);
+            $('#pointsNum').text(randNum);
+
+            totalScore = 0;
+            $('#yourTotalScore').text(totalScore);
+        }
+
         // win counter total
             function win() {
                 $('#youWon').text("You WON!");
                 winCounter++;
                 $('#wins').text(winCounter);
+                reset();
             };
 
         // losses counter total
@@ -52,6 +66,7 @@
                 $('#youLost').text("You LOST!");
                 lossCounter++;
                 $('#losses').text(lossCounter)
+                reset();
             };
 
 // -------------------- Main Processes ----------------------
@@ -63,6 +78,7 @@
 
             if (totalScore == randNum) {
                 win();
+                initializeGame();
             }
             else if (totalScore > randNum) {
                 lost();
@@ -108,6 +124,7 @@
                 lost();
             }
         });
+
 
 // -------------------- HTML --------------------------------
     // user score
