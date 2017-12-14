@@ -49,6 +49,9 @@
             console.log(randNum);
             $('#pointsNum').text(randNum);
 
+            imgRandNum = [];
+            imagesRandomNumbers();
+
             totalScore = 0;
             $('#yourTotalScore').text(totalScore);
         }
@@ -56,6 +59,7 @@
         // win counter total
             function win() {
                 $('#youWon').text("You WON!");
+                $('#youLost').text("");
                 winCounter++;
                 $('#wins').text(winCounter);
                 reset();
@@ -64,8 +68,9 @@
         // losses counter total
             function lost() {
                 $('#youLost').text("You LOST!");
+                $('#youWon').text("");
                 lossCounter++;
-                $('#losses').text(lossCounter)
+                $('#losses').text(lossCounter);
                 reset();
             };
 
@@ -83,6 +88,10 @@
             else if (totalScore > randNum) {
                 lost();
             }
+            else {
+                $('#youWon').text("");
+                $('#youLost').text("");
+            }
             console.log(randNum);
         });
 
@@ -97,6 +106,10 @@
             else if (totalScore > randNum) {
                 lost();
             }
+            else {
+                $('#youWon').text("");
+                $('#youLost').text("");
+            }
         });
 
         $('#thirdImg').on('click', function() {
@@ -110,6 +123,10 @@
             else if (totalScore > randNum) {
                 lost();
             }
+            else {
+                $('#youWon').text("");
+                $('#youLost').text("");
+            }
         });
 
         $('#fourthImg').on('click', function() {
@@ -122,6 +139,10 @@
             }
             else if (totalScore > randNum) {
                 lost();
+            }
+            else {
+                $('#youWon').text("");
+                $('#youLost').text("");
             }
         });
 
